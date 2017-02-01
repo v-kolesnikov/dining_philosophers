@@ -18,11 +18,12 @@ module DiningPhilosophers
     end
   end
 
-  class Philosopher
+  class NaivePhilosopher
     attr_reader :name, :left_chopstick, :right_chopstick
 
     def initialize(name, left_chopstick, right_chopstick)
       @name = name
+
       @left_chopstick = left_chopstick
       @right_chopstick = right_chopstick
     end
@@ -44,6 +45,17 @@ module DiningPhilosophers
     def eat
       puts "#{name} eating..."
       sleep(rand(2))
+    end
+  end
+
+  class WisePhilosopher < NaivePhilosopher
+    def initialize(name, left_chopstick, right_chopstick)
+      super
+
+      return if left_chopstick.id < right_chopstick.id
+
+      @left_chopstick = right_chopstick
+      @right_chopstick = left_chopstick
     end
   end
 end
