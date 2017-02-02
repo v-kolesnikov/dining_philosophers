@@ -6,7 +6,7 @@ RSpec.shared_examples "table setup" do
 end
 
 RSpec.shared_examples "by timeout" do
-  let(:lunch_timeout_seconds) { 10 }
+  let(:lunch_timeout_seconds) { 30 }
 
   subject do
     Timeout.timeout(lunch_timeout_seconds) do
