@@ -3,7 +3,11 @@ source 'https://rubygems.org'
 gemspec
 
 gem "rake"
-gem "pry-byebug"
+
+group :tools do
+  gem "pry"
+  gem "pry-byebug", platform: "mri"
+end
 
 group :test do
   gem "rspec"
